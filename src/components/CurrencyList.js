@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AppContext } from '../context/AppContext';
+
 const CurrencyList = () => {
-    const [selectedCurrency, setSelectedCurrency] = useState('£');
+    const { currency } = useContext(AppContext);
+    const [selectedCurrency, setSelectedCurrency] = useState(currency);
 
     const handleCurrencyChange = (event) => {
         setSelectedCurrency(event.target.value);
@@ -14,7 +17,7 @@ const CurrencyList = () => {
                 value={selectedCurrency}
                 onChange={handleCurrencyChange}
             >
-                <option defaultValue value="£" name="pound">£ Pound</option>
+                <option value="£" name="pound">£ Pound</option>
                 <option value="$" name="dollar">$ Dollar</option>
                 <option value="€" name="euro">€ Euro</option>
                 <option value="₹" name="ruppee">₹ Ruppee</option>
