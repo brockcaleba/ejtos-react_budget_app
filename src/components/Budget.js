@@ -6,8 +6,6 @@ const Budget = () => {
     const { expenses } = useContext(AppContext);
     const [newBudget, setNewBudget] = useState(budget);
     const maxBudget = 20000
-    // const defaultBudget = 2000
-    // const drsetInputValue = useState(defaultBudget);
     const totalExpenses = expenses.reduce((total, item) => {
         return (total += item.cost);
     }, 0);
